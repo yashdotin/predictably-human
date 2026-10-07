@@ -1,0 +1,84 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 10000,
+  "splits": {
+    "train": 7000,
+    "val": 1500,
+    "test": 1500
+  },
+  "heads": {
+    "study": {
+      "algorithm": "Logistic Regression",
+      "task": "binary",
+      "metrics": {
+        "accuracy": 0.7833,
+        "roc_auc": 0.7655,
+        "log_loss": 0.4852,
+        "brier": 0.1575,
+        "oracle_auc": 0.8114
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 0.4814,
+          "val_accuracy": 0.7733
+        },
+        {
+          "model": "Random Forest (isotonic-calibrated)",
+          "val_log_loss": 0.5048,
+          "val_accuracy": 0.766
+        }
+      ]
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "deadline_hours",
+      "importance": 0.2739
+    },
+    {
+      "feature": "phone_distance",
+      "importance": 0.2543
+    },
+    {
+      "feature": "last_activity",
+      "importance": 0.2236
+    },
+    {
+      "feature": "mood",
+      "importance": 0.1422
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0526
+    },
+    {
+      "feature": "sleep",
+      "importance": 0.0484
+    },
+    {
+      "feature": "tabs",
+      "importance": 0.0032
+    },
+    {
+      "feature": "battery",
+      "importance": 0.0018
+    }
+  ],
+  "limitations": [
+    "Synthetic data: metrics measure how well the model recovers the generator, not real people.",
+    "Hidden discipline trait and label noise cap achievable accuracy; see oracle_auc."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in train.ipynb",
+    "rows": 10000
+  },
+  "id": "study-vs-instagram",
+  "name": "Will I study or open Instagram?",
+  "export_relative_error": {
+    "study": 0.0
+  }
+}

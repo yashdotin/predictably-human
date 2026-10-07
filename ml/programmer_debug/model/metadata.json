@@ -1,0 +1,80 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 10000,
+  "splits": {
+    "train": 7000,
+    "val": 1500,
+    "test": 1500
+  },
+  "heads": {
+    "strategy": {
+      "algorithm": "Logistic Regression",
+      "task": "multiclass",
+      "metrics": {
+        "accuracy": 0.514,
+        "macro_f1": 0.3757,
+        "log_loss": 1.18,
+        "top3_accuracy": 0.9147,
+        "oracle_accuracy": 0.5173
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 1.158,
+          "val_accuracy": 0.532
+        },
+        {
+          "model": "Random Forest",
+          "val_log_loss": 1.213,
+          "val_accuracy": 0.508
+        }
+      ]
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "minutes",
+      "importance": 0.3123
+    },
+    {
+      "feature": "experience",
+      "importance": 0.3013
+    },
+    {
+      "feature": "sleep",
+      "importance": 0.1865
+    },
+    {
+      "feature": "severity",
+      "importance": 0.1106
+    },
+    {
+      "feature": "so_tabs",
+      "importance": 0.0442
+    },
+    {
+      "feature": "error_len",
+      "importance": 0.0299
+    },
+    {
+      "feature": "coffee",
+      "importance": 0.0152
+    }
+  ],
+  "limitations": [
+    "Synthetic data. Real debugging is chaos with a coffee habit.",
+    "Accuracy is capped by sampling noise; see oracle_accuracy."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in this notebook",
+    "rows": 10000
+  },
+  "id": "programmer-debug",
+  "name": "Will this programmer fix the bug or restart the server?",
+  "export_relative_error": {
+    "strategy": 0.0
+  }
+}

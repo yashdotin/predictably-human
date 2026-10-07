@@ -1,0 +1,93 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 20000,
+  "splits": {
+    "train": 14000,
+    "val": 3000,
+    "test": 3000
+  },
+  "heads": {
+    "next": {
+      "algorithm": "Logistic Regression",
+      "task": "multiclass",
+      "metrics": {
+        "accuracy": 0.556,
+        "macro_f1": 0.3569,
+        "log_loss": 1.2777,
+        "top3_accuracy": 0.835,
+        "markov_baseline_accuracy": 0.5217,
+        "oracle_accuracy": 0.5737
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 1.2918,
+          "val_accuracy": 0.5573
+        },
+        {
+          "model": "Random Forest",
+          "val_log_loss": 1.371,
+          "val_accuracy": 0.5337
+        }
+      ]
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "prev1",
+      "importance": 0.7855
+    },
+    {
+      "feature": "activity",
+      "importance": 0.117
+    },
+    {
+      "feature": "prev2",
+      "importance": 0.0492
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0276
+    },
+    {
+      "feature": "prev3",
+      "importance": 0.014
+    },
+    {
+      "feature": "weekend",
+      "importance": 0.0031
+    },
+    {
+      "feature": "notifications",
+      "importance": 0.0018
+    },
+    {
+      "feature": "opens_today",
+      "importance": 0.0011
+    },
+    {
+      "feature": "battery",
+      "importance": 0.0005
+    },
+    {
+      "feature": "session_min",
+      "importance": 0.0002
+    }
+  ],
+  "limitations": [
+    "Synthetic habits. Your actual scrolling pattern is more chaotic than any Markov chain.",
+    "Top-1 accuracy is capped by randomness in the generator; see oracle_accuracy."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in this notebook",
+    "rows": 20000
+  },
+  "id": "next-app",
+  "name": "Which app will I open next?",
+  "export_relative_error": {
+    "next": 0.0
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 5000,
+  "splits": {
+    "train": 3500,
+    "val": 750,
+    "test": 750
+  },
+  "heads": {
+    "phone": {
+      "algorithm": "Logistic Regression",
+      "task": "binary",
+      "metrics": {
+        "accuracy": 0.7,
+        "roc_auc": 0.7716,
+        "log_loss": 0.5405,
+        "brier": 0.1842,
+        "oracle_auc": 0.8341
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 0.5491,
+          "val_accuracy": 0.716
+        },
+        {
+          "model": "Random Forest (isotonic-calibrated)",
+          "val_log_loss": 0.7771,
+          "val_accuracy": 0.7053
+        }
+      ]
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "phone_in_hand",
+      "importance": 0.5861
+    },
+    {
+      "feature": "boredom",
+      "importance": 0.3383
+    },
+    {
+      "feature": "typical_minutes",
+      "importance": 0.0609
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0102
+    },
+    {
+      "feature": "yt_notifications",
+      "importance": 0.0045
+    },
+    {
+      "feature": "battery",
+      "importance": 0.0
+    }
+  ],
+  "limitations": [
+    "Synthetic data: metrics measure recovery of the generator, not real bathroom habits.",
+    "Hidden habit trait caps accuracy; see oracle_auc."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in train.ipynb",
+    "rows": 5000
+  },
+  "id": "bathroom-phone",
+  "name": "Will I take my phone to the bathroom?",
+  "export_relative_error": {
+    "phone": 0.0
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 8000,
+  "splits": {
+    "train": 5600,
+    "val": 1200,
+    "test": 1200
+  },
+  "heads": {
+    "spice": {
+      "algorithm": "Random Forest Regressor",
+      "task": "regression",
+      "metrics": {
+        "mae": 5.5205,
+        "r2": 0.8061
+      },
+      "val": {
+        "val_mae": 5.676,
+        "ridge_baseline_val_mae": 6.1
+      }
+    },
+    "survive": {
+      "algorithm": "Logistic Regression",
+      "task": "binary",
+      "metrics": {
+        "accuracy": 0.7475,
+        "roc_auc": 0.7363,
+        "log_loss": 0.5309,
+        "brier": 0.1764,
+        "oracle_auc": 0.7651
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 0.5414,
+          "val_accuracy": 0.7358
+        },
+        {
+          "model": "Random Forest (isotonic-calibrated)",
+          "val_log_loss": 0.588,
+          "val_accuracy": 0.7258
+        }
+      ]
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "chilli_tsp",
+      "importance": 0.5372
+    },
+    {
+      "feature": "masala",
+      "importance": 0.3813
+    },
+    {
+      "feature": "water_ml",
+      "importance": 0.064
+    },
+    {
+      "feature": "cook_min",
+      "importance": 0.0175
+    },
+    {
+      "feature": "hunger",
+      "importance": 0.0
+    }
+  ],
+  "limitations": [
+    "Synthetic data: tolerance is hidden and simulated. Do not use this to decide anything about real food.",
+    "Class bands (Safe / Suspicious / Dangerous / Call someone) are fixed thresholds on the spice score."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in train.ipynb",
+    "rows": 8000
+  },
+  "id": "maggi",
+  "name": "Will this Maggi become too spicy?",
+  "export_relative_error": {
+    "spice": 0.0,
+    "survive": 0.0
+  }
+}

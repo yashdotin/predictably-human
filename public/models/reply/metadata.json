@@ -1,0 +1,89 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 10000,
+  "splits": {
+    "train": 7000,
+    "val": 1500,
+    "test": 1500
+  },
+  "heads": {
+    "reply": {
+      "algorithm": "Logistic Regression",
+      "task": "binary",
+      "metrics": {
+        "accuracy": 0.6373,
+        "roc_auc": 0.6912,
+        "log_loss": 0.6229,
+        "brier": 0.2173,
+        "oracle_auc": 0.7392
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 0.615,
+          "val_accuracy": 0.6647
+        },
+        {
+          "model": "Random Forest (isotonic-calibrated)",
+          "val_log_loss": 0.6417,
+          "val_accuracy": 0.654
+        }
+      ]
+    },
+    "eta": {
+      "algorithm": "Random Forest Regressor (log target)",
+      "task": "regression",
+      "metrics": {
+        "mae": 41.4755,
+        "r2": 0.2707
+      }
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "avg_reply_min",
+      "importance": 0.348
+    },
+    {
+      "feature": "msg_len",
+      "importance": 0.2355
+    },
+    {
+      "feature": "seen",
+      "importance": 0.171
+    },
+    {
+      "feature": "emojis",
+      "importance": 0.1246
+    },
+    {
+      "feature": "hour",
+      "importance": 0.1033
+    },
+    {
+      "feature": "day_type",
+      "importance": 0.0177
+    },
+    {
+      "feature": "minutes_since",
+      "importance": 0.0
+    }
+  ],
+  "limitations": [
+    "Entertainment only. Human behavior is unpredictable, especially after 'seen'.",
+    "Trained on synthetic data. No real messages, no relationship data, nothing uploaded."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in this notebook",
+    "rows": 10000
+  },
+  "id": "reply",
+  "name": "Will she reply or am I cooked?",
+  "export_relative_error": {
+    "reply": 0.0,
+    "eta": 0.0
+  }
+}

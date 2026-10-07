@@ -1,0 +1,92 @@
+{
+  "version": "v1.0",
+  "trained_at": "2026-10-05",
+  "seed": 42,
+  "n_samples": 10000,
+  "splits": {
+    "train": 7000,
+    "val": 1500,
+    "test": 1500
+  },
+  "heads": {
+    "wake": {
+      "algorithm": "Logistic Regression",
+      "task": "binary",
+      "metrics": {
+        "accuracy": 0.7473,
+        "roc_auc": 0.8127,
+        "log_loss": 0.5111,
+        "brier": 0.1699
+      },
+      "candidates": [
+        {
+          "model": "Logistic Regression",
+          "val_log_loss": 0.4985,
+          "val_accuracy": 0.7573
+        },
+        {
+          "model": "Random Forest (isotonic-calibrated)",
+          "val_log_loss": 0.5554,
+          "val_accuracy": 0.75
+        }
+      ]
+    },
+    "duration": {
+      "algorithm": "Random Forest Regressor (log target)",
+      "task": "regression",
+      "metrics": {
+        "mae": 14.1102,
+        "r2": 0.3513
+      }
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "sleep_last",
+      "importance": 0.5997
+    },
+    {
+      "feature": "bed_comfort",
+      "importance": 0.1735
+    },
+    {
+      "feature": "temp_c",
+      "importance": 0.0878
+    },
+    {
+      "feature": "prev_naps",
+      "importance": 0.0507
+    },
+    {
+      "feature": "day",
+      "importance": 0.0473
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0254
+    },
+    {
+      "feature": "workload",
+      "importance": 0.0156
+    },
+    {
+      "feature": "battery",
+      "importance": 0.0
+    }
+  ],
+  "limitations": [
+    "Synthetic data. Real nap length depends on things this model has never met (your landlord, your cat, a 3 pm lecture).",
+    "Risk bands are fixed thresholds on wake-up probability."
+  ],
+  "dataset": {
+    "source": "synthetic",
+    "generator": "generate() in this notebook",
+    "rows": 10000
+  },
+  "id": "nap",
+  "name": "If I lie down for 5 minutes, will I wake up?",
+  "export_relative_error": {
+    "wake": 0.0,
+    "duration": 0.0
+  }
+}
